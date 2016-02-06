@@ -1,2 +1,1 @@
-c:\php-gtk\php.exe "C:\Skrypty\!Aplikacje\SVG Metadata reader\core\SVGnife.php" "E:\svgtest\tmp.test.svg"
-pause
+c:\php-gtk\php.exe "%~dp0\core\SVGnife.php"
