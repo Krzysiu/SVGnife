@@ -1,0 +1,53 @@
+Todo:
+Preferences:
+** change translation structure - /i18n/co_DE/files*
+
+* Path preferences
+** Try to find Inkscape
+
+* Try translation 
+** move strings to en_EN
+** move tips to
+** !! change i18n class to allow getting of arrays and their values (2nd parameter)
+
+* Build ready to use package
+* Allow looping thought the files
+
+v0.1.3 (2016-02-xx)
+===================
+* Translation is now available
+
+* Some requiments removed
+** Gtk2::FileDrop and MIMEType got bundled 
+** Inkscape is now optional (could be switched by disabling preview)
+
+* Infobar shows tip of the day when runned without file opened
+
+* Look and feel preferences are now available
+** Showing/hiding infobar, navigation bar and preview
+** Preview options - display page or area
+** Toolbar style
+
+* GUI changes
+** Added refresh button to navigation bar
+** Fields needed for OpenClipart.org upload are bold
+** Preferences inform when user have to reload application/image
+
+* A lot of minor bugs fixed
+* Added debug.bat for creating PHP debug log
+
+v0.1.2 (2016-01-30)
+===================
+* Tool rebranding including new logo - now it's known as SVGnife
+* Added navigation bar
+* Changed file open dialog and button
+* Added keyboard shortcuts (see manual)
+* Added "About" dialog
+* Preferences moved to .ini file
+* New button bar, which was moved to the top
+
+v0.1.1 (2016-01-29)
+===================
+* Asynchronous SVG preview
+* Better handling of preview errors (earlier application was crashing)
+* Changed messages when there's no metadata block

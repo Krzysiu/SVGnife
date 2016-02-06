@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-06 03:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ..\resources\dialogAbout.glade:14
+msgid "Krzysztof Blachnicki"
+msgstr ""
+
+#: ..\resources\dialogAbout.glade:15
+msgid ""
+"SVGnife - swiss knife for SVG. Small, yet usable!\n"
+"\n"
+"Made to fulfill my need of SVG metadata reading, fast SVG preview and at "
+"last but not least - quick sharing vector files with OpenClipart.com.\n"
+"\n"
+"This tool is totally free, yet if you want to support further creation of "
+"SVGnife or just thank me, all donations are welcome.\n"
+"\n"
+"I'll be happy to hear your review, opinion, use cases etc. You can contact "
+"me using contact form on my website."
+msgstr ""
+
+#: ..\resources\dialogAbout.glade:23
+msgid "http://krzysiu.net"
+msgstr ""
+
+#: ..\resources\dialogAbout.glade:24
+msgid ""
+"Copyright (c) 2016 krzysiu.net\n"
+"\n"
+"This tool is licensed as both GPL and MIT.\n"
+"\n"
+"GPL license: http://www.gnu.org/licenses/gpl.html\n"
+"MIT license: http://opensource.org/licenses/MIT\n"
+"\n"
+"All derivative works have to be attributed to \"Krzysztof Blachnicki "
+"(krzysiu.net)\"."
+msgstr ""

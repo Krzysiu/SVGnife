@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="37.28917mm"
+   height="37.28917mm"
+   viewBox="0 0 132.127 132.1269"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon.svg">
+  <title
+     id="title4208">SVGnife icon</title>
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="375"
+     inkscape:cy="520"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-bottom="0"
+     fit-margin-left="0"
+     fit-margin-right="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>SVGnife icon</dc:title>
+        <dc:date>2016-01-30</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Krzysztof Blachnicki</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>krzysiu.net</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>neutral</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>logo</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>svg</rdf:li>
+            <rdf:li>svgnife</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>The icon of SVGnife tool.</dc:description>
+        <cc:license
+           rdf:resource="http://www.gnu.org/licenses/gpl.html" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Logo"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(8.639328,-83.83913)">
+    <rect
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 1;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4149"
+       width="132.127"
+       height="132.127"
+       x="-8.639328"
+       y="83.83907"
+       rx="16.66752"
+       ry="16.66752" />
+    <g
+       id="g4151"
+       transform="translate(-180.8173,12.62691)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4141"
+         d="m 288.4705,83.33542 c 2.2505,0 4.097,0.65871 5.686,1.77681 1.6123,1.13471 2.9019,2.4876 3.7312,4.26441 0.8293,1.77682 1.1254,3.72869 1.066,5.86361 -0.1789,3.05336 -0.5415,4.98605 -2.0969,6.92805 -13.7519,-21.77731 -41.0005,4.1976 -43.2824,20.4554 4.5903,0.2012 6.3022,-0.1789 9.062,-0.1789 l 9.0617,0 c 0.6376,0 0.8293,0.5919 0.7108,1.066 -0.1182,0.4741 -0.646,0.8268 -1.5992,0.8884 -2.7212,0.1789 -5.625,0.2971 -8.7065,0.3553 -3.0792,0.058 -6.2425,-0.3907 -9.2396,0.3555 -0.7242,1.0405 -0.9012,2.5458 -1.2436,3.7313 -11.1117,29.441 -28.4182,60.7218 -62.0157,61.7932 -3.9091,0 -6.8433,-0.9769 -8.884,-2.8428 -2.1056,-1.9254 -3.1984,-4.3235 -3.1984,-7.2852 0,-3.1984 1.1011,-6.1211 3.376,-8.7064 0.3319,-0.3776 0.7325,-0.4444 1.066,-0.1789 0.262,0.2076 0.483,0.5565 0.3552,0.8884 -0.4753,1.2363 -0.8238,2.4278 -0.7104,3.7312 0.1246,1.4213 0.6887,2.6956 1.5992,3.9092 0.8673,1.1567 2.1531,2.0819 3.9088,2.8428 1.7992,0.7798 4.0868,1.244 6.9297,1.244 30.409,-1.7519 42.1825,-37.1968 48.1563,-55.0413 l 1.0661,-3.1984 c 0.7155,-2.1467 -4.3986,-0.214 -6.4221,0.08 -2.0058,0.2939 -3.9184,1.5136 -5.8383,1.695 -0.6016,0.057 -0.7105,-0.413 -0.3553,-0.8884 0.3553,-0.4737 0.8718,-0.9737 1.5992,-1.4212 3.7555,-2.2113 7.6312,-2.1905 11.9049,-2.6653 3.3552,-0.3731 3.6804,-21.5195 26.7224,-34.49095 5.9154,-3.33001 11.7864,-4.97489 17.5909,-4.97489 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="107"
+         inkscape:export-xdpi="107"
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path4206"
+         d="m 257.0712,101.2575 c -2.6122,2.5589 -2.6221,6.7207 2.6649,1.7919 7.5985,-6.5901 33.1371,-26.64681 36.8393,-2.6477 3.4894,-20.20653 -15.8632,-22.16192 -39.5042,0.8558 z"
+         style="fill:#d40000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

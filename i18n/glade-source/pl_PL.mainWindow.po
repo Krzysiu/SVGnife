@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-06 03:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ..\resources\mainWindow.glade:8
+msgid "SVGnife"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:32
+msgid "Open"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:45
+msgid "Upload"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:68
+msgid "Preferences"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:91
+msgid "About"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:104
+msgid "Exit"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:338
+msgid "<b>Title:</b>"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:365
+msgid "<b>Description:</b>"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:378
+msgid "Language:"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:390
+msgid "Publisher:"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:402
+msgid "Date:"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:414
+msgid "<b>Tags:</b>"
+msgstr ""
+
+#: ..\resources\mainWindow.glade:886
+msgid "Preview"
+msgstr ""

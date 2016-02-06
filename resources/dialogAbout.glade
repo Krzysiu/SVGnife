@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.24 -->
+  <!-- interface-naming-policy project-wide -->
+  <widget class="GtkAboutDialog" id="_dialogAbout">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="modal">True</property>
+    <property name="icon">SVGnife.ico</property>
+    <property name="type_hint">normal</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="program_name">SVGnife</property>
+    <property name="copyright" translatable="yes">Krzysztof Blachnicki</property>
+    <property name="comments" translatable="yes">SVGnife - swiss knife for SVG. Small, yet usable!
+
+Made to fulfill my need of SVG metadata reading, fast SVG preview and at last but not least - quick sharing vector files with OpenClipart.com.
+
+This tool is totally free, yet if you want to support further creation of SVGnife or just thank me, all donations are welcome.
+
+I'll be happy to hear your review, opinion, use cases etc. You can contact me using contact form on my website.</property>
+    <property name="website">http://krzysiu.net</property>
+    <property name="website_label" translatable="yes">http://krzysiu.net</property>
+    <property name="license" translatable="yes">Copyright (c) 2016 krzysiu.net
+
+This tool is licensed as both GPL and MIT.
+
+GPL license: http://www.gnu.org/licenses/gpl.html
+MIT license: http://opensource.org/licenses/MIT
+
+All derivative works have to be attributed to "Krzysztof Blachnicki (krzysiu.net)".</property>
+    <property name="logo">logo_big.png</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+          </widget>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
