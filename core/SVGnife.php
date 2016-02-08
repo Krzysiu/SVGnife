@@ -18,7 +18,6 @@
 	require_once('core/config.php');
 	require_once('Gtk2/FileDrop.php');
 	require_once('core/svgReadMeta.php');
-	require_once('core/tipsData.php');
 	require_once('core/gladeTranslate.php');
 	require_once('i18n/langList.php');
 
@@ -27,7 +26,10 @@
 	
 	$glade = new GladeXML('resources/mainWindow.glade');
 	
-	
+	/* Preparing tip of the day */
+	$tips = [];
+	$tips['tips'] = explode('|', $i18n->_('TOTD'));
+	$tips['current'] = array_rand($tips['tips']);	
 	
 	/* Getting widgets */
 	$_mainWindow = $glade->get_widget('_mainWindow');
@@ -127,7 +129,7 @@
 	
 	function setTip($delta = 0) {
 		// Sets so called "tip of the day" or "did you know that"
-		global $_tipLabel, $tips;
+		global $_tipLabel, $tips, $i18n;
 		
 		if ($delta === -1) {
 			if ($tips['current'] === 0)	$tips['current'] = count($tips['tips']) - 1; else $tips['current'] = $tips['current'] - 1;
@@ -137,7 +139,7 @@
 			if ($tips['current'] === count($tips['tips']) - 1)	$tips['current'] = 0; else $tips['current'] = $tips['current'] + 1;
 		}
 		
-		$_tipLabel->set_markup($tips['prefix'] . $tips['tips'][$tips['current']]);
+		$_tipLabel->set_markup("{$i18n->_('TOTDPrefix')} {$tips['tips'][$tips['current']]}");
 	}
 	
 	function spinnerToggle($state) {
