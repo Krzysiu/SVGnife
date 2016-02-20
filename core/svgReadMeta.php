@@ -29,10 +29,11 @@
 	if ($svgKeywords) {
 	foreach ($svgKeywords as $keyword) {
 	$keyword = trim($keyword->__toString());
-	if ($keyword)	$meta['Tags'] .= "#{$keyword} ";
+	if ($keyword)	$meta['Tags'] .= "{$keyword}, ";
 	}
+	$meta['Tags'] = substr($meta['Tags'], 0, -2);
 	}
-$meta = array_map('trim', $meta);
+	$meta = array_map('trim', $meta);
 		
 		return $meta;
 	}
