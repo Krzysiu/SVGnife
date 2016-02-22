@@ -89,8 +89,13 @@
 		$config['displayNavbar'] = $dialogPreferences->get_widget('_prefDisplayNavbar')->get_active();
 		gtShow($glade->get_widget('_navBar'), $config['displayNavbar']);
 		
+		// Display preview
 		$config['displayPreview'] = $dialogPreferences->get_widget('_prefDisplayPreview')->get_active();
 		gtShow($glade->get_widget('_previewArea'), $config['displayPreview']);
+		
+		// Hide upload button if upload is disabled
+		$config['enableUpload'] = $dialogPreferences->get_widget('_prefUploadEnable')->get_active();
+		gtShow($glade->get_widget('_btnUpload'), $config['enableUpload']);
 		
 		$i = 0;
 		foreach ($radioGroup['toolbarStyle'] as $radio) { if ($dialogPreferences->get_widget($radio)->get_active()) { $config['toolbarStyle'] = $i; break; }; $i++; }
@@ -104,7 +109,7 @@
 		$config['language'] = $matches[1];
 		unset($matches);
 		
-		$config['enableUpload'] = $dialogPreferences->get_widget('_prefUploadEnable')->get_active();
+		
 		$config['uploadUsername'] = gtGetText($dialogPreferences->get_widget('_prefUploadUsername'));
 		$config['uploadAPIKey'] = gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey'));		
 		$config['NSFWTagToFlag'] = $dialogPreferences->get_widget('_prefUploadNSFW')->get_active();

@@ -79,11 +79,12 @@
 	gtColor($_tipLabel, 'fg', $gui['CNoticeBarFG']);
 	gtFont($_tipLabel, $gui['XTipOfTheDay']);
 	
-	/* Setting preferences */
+	/* Setting widgets according to user config */
 	gtShow($glade->get_widget('_infoBar'), $config['displayInfobar']);
 	gtShow($glade->get_widget('_navBar'), $config['displayNavbar']);
 	gtShow($glade->get_widget('_previewArea'), $config['displayPreview']);
 	$glade->get_widget('_toolbar')->set_toolbar_style($toolbarStyles[$config['toolbarStyle']]);
+	gtShow($_btnUpload, $config['enableUpload']);
 	
 	/* Run */
 	if (!is_dir($config['tempDirectory'])) mkdir($config['tempDirectory']);
