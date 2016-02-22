@@ -1,5 +1,6 @@
 <?
 	$lang = [
+	'prefNoticeFirstTime' => 'Hello! This is the first run, so set the preferences, please',
 	'prefNoticeRefresh' => 'You may need to refresh image to see results',
 	'prefNoticeDrawingArea' => 'Drawing area is not recommended for uploads, as OpenClipart.org uses page area',
 	'loadIncorrectSVG' => '%s is not valid SVG',

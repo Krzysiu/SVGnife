@@ -92,8 +92,10 @@
 	setTip(); // set initial, random tip of the day
 	if (isset($argv[1]) && file_exists($argv[1])) readSVG($argv[1]); // cmd line parameters support
 	
+	while (Gtk::events_pending()) Gtk::main_iteration();
+	if ($config['firstTime']) showPreferencesDialog();
 	Gtk::main();
-	
+
 	/* Functions */
 	function uploadClick() {
 		global $i18n, $glade, $fileList;

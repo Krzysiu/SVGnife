@@ -53,8 +53,10 @@
 		
 		// signals that displays infobar notices; they have to be set after widget setup
 		$_prefDisplayPreview->connect('toggled', 'setDisplayPreview');
-		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'), $gui['CNoticeBarBG']);
+		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'));
 		$dialogPreferences->get_widget('_prefPreviewDrawing')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeDrawingArea') . "\n" . $i18n->_('prefNoticeRefresh'), $gui['CNoticeBarWarnBG']);
+		
+		if ($config['firstTime']) setPreferencesNoticeBox($i18n->_('prefNoticeFirstTime'));
 	}
 	
 	function setDisplayPreview($widget) {
@@ -65,17 +67,18 @@
 		if ($state) setPreferencesNoticeBox($i18n->_('prefNoticeRefresh'));	
 	}
 	
-	function setPreferencesNoticeBox($msg, $color) {
+	function setPreferencesNoticeBox($msg, $color = false) {
 		global $dialogPreferences, $gui;
 		
+		$color = $color ?: $gui['CNoticeBarBG'];
 		gtColor($dialogPreferences->get_widget('_noticeBar'), 'bg', $color);
 		gtSetText($dialogPreferences->get_widget('_noticeLabel'), $msg);
 		$dialogPreferences->get_widget('_noticeBar')->show();
 	}
 	
 	function cancelPreferencesDialog() {
-		global $dialogPreferences;
-		$dialogPreferences->get_widget('_dialogPreferences')->destroy(); 
+		global $dialogPreferences, $config;
+		if ($config['firstTime']) Gtk::main_quit(); else $dialogPreferences->get_widget('_dialogPreferences')->destroy(); 
 	}
 	
 	function savePreferencesDialog() {
@@ -109,6 +112,7 @@
 		$config['language'] = $matches[1];
 		unset($matches);
 		
+		if (!is_dir($config['tempDirectory'])) mkdir($config['tempDirectory']); // create temp directory, if doesn't exist yet
 		
 		$config['uploadUsername'] = gtGetText($dialogPreferences->get_widget('_prefUploadUsername'));
 		$config['uploadAPIKey'] = gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey'));		
