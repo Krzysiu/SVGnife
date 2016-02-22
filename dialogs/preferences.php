@@ -23,7 +23,6 @@
 		gtIcon($_btnSave, Gtk::STOCK_SAVE);
 		gtIcon($_btnCancel, Gtk::STOCK_CANCEL);
 
-		gtColor($dialogPreferences->get_widget('_noticeBar'), 'bg', $gui['CNoticeBarBG']);
 		gtColor($_noticeLabel, 'fg', $gui['CNoticeBarFG']);
 		gtFont($_noticeLabel, $gui['SNoticeBar']);
 		gtFont($dialogPreferences->get_widget('_prefUploadGetKeyLBottom'), $gui['XSmallNote']);
@@ -54,8 +53,8 @@
 		
 		// signals that displays infobar notices; they have to be set after widget setup
 		$_prefDisplayPreview->connect('toggled', 'setDisplayPreview');
-		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'));
-		$dialogPreferences->get_widget('_prefPreviewDrawing')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeDrawingArea') . "\n" . $i18n->_('prefNoticeRefresh'));
+		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'), $gui['CNoticeBarBG']);
+		$dialogPreferences->get_widget('_prefPreviewDrawing')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeDrawingArea') . "\n" . $i18n->_('prefNoticeRefresh'), $gui['CNoticeBarWarnBG']);
 	}
 	
 	function setDisplayPreview($widget) {
@@ -66,10 +65,12 @@
 		if ($state) setPreferencesNoticeBox($i18n->_('prefNoticeRefresh'));	
 	}
 	
-	function setPreferencesNoticeBox($msg) {
-		global $dialogPreferences;
-		$dialogPreferences->get_widget('_noticeBar')->show();
+	function setPreferencesNoticeBox($msg, $color) {
+		global $dialogPreferences, $gui;
+		
+		gtColor($dialogPreferences->get_widget('_noticeBar'), 'bg', $color);
 		gtSetText($dialogPreferences->get_widget('_noticeLabel'), $msg);
+		$dialogPreferences->get_widget('_noticeBar')->show();
 	}
 	
 	function cancelPreferencesDialog() {
