@@ -451,10 +451,16 @@
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">False</property>
-                            <property name="n_rows">3</property>
+                            <property name="n_rows">4</property>
                             <property name="n_columns">3</property>
                             <property name="column_spacing">5</property>
                             <property name="row_spacing">5</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
                             <child>
                               <widget class="GtkLabel" id="label8">
                                 <property name="visible">True</property>
@@ -571,9 +577,6 @@
                               </packing>
                             </child>
                             <child>
-                              <placeholder/>
-                            </child>
-                            <child>
                               <widget class="GtkLabel" id="_prefUploadAPIWarn">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
@@ -587,7 +590,19 @@
                               </packing>
                             </child>
                             <child>
-                              <placeholder/>
+                              <widget class="GtkCheckButton" id="_prefUploadNSFW">
+                                <property name="label" translatable="yes">Set not-suitable-for-work flag for pictures with "nsfw" tag</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="active">True</property>
+                                <property name="draw_indicator">True</property>
+                              </widget>
+                              <packing>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">3</property>
+                                <property name="bottom_attach">4</property>
+                              </packing>
                             </child>
                           </widget>
                           <packing>

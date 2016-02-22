@@ -37,6 +37,7 @@
 		$dialogPreferences->get_widget($radioGroup['toolbarStyle'][$config['toolbarStyle']])->set_active(true);
 		$dialogPreferences->get_widget($radioGroup['previewArea'][$config['previewArea']])->set_active(true);
 		$_prefUploadEnable->set_active($config['enableUpload']);
+		$dialogPreferences->get_widget('_prefUploadNSFW')->set_active($config['NSFWTagToFlag']);		
 		$_prefUploadTable->set_sensitive($config['enableUpload']);
 		gtSetText($dialogPreferences->get_widget('_prefUploadUsername'), $config['uploadUsername']);
 		gtSetText($dialogPreferences->get_widget('_prefUploadAPIKey'), $config['uploadAPIKey']);
@@ -104,7 +105,7 @@
 		$config['enableUpload'] = $dialogPreferences->get_widget('_prefUploadEnable')->get_active();
 		$config['uploadUsername'] = gtGetText($dialogPreferences->get_widget('_prefUploadUsername'));
 		$config['uploadAPIKey'] = gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey'));		
-		
+		$config['NSFWTagToFlag'] = $dialogPreferences->get_widget('_prefUploadNSFW')->get_active();
 		saveConfigFile(); // @functions.php
 		
 		$dialogPreferences->get_widget('_dialogPreferences')->destroy(); 		
