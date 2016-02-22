@@ -54,7 +54,8 @@
 		
 		// signals that displays infobar notices; they have to be set after widget setup
 		$_prefDisplayPreview->connect('toggled', 'setDisplayPreview');
-		foreach ($radioGroup['previewArea'] as $radio) $dialogPreferences->get_widget($radio)->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'));
+		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'));
+		$dialogPreferences->get_widget('_prefPreviewDrawing')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeDrawingArea') . "\n" . $i18n->_('prefNoticeRefresh'));
 	}
 	
 	function setDisplayPreview($widget) {
