@@ -1,6 +1,6 @@
 <?
 	// Nothing to config here! It's just SVGnife.ini parser.
-	$appVer = '0.1.3';
+	$appVer = '0.1.4';
 	
 	$configFile = 'SVGnife.ini';
 	if (file_exists($configFile)) {
