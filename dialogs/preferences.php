@@ -4,7 +4,7 @@
 	$radioGroup['previewArea'] = ['_prefPreviewPage', '_prefPreviewDrawing'];
 	
 	function showPreferencesDialog() {
-		global $dialogPreferences, $config, $radioGroup, $i18n, $langList;
+		global $dialogPreferences, $config, $radioGroup, $i18n, $langList, $gui;
 		$dialogPreferences = new GladeXML(gtTranslateGlade('dialogPreferences'));
 		$_btnSave = $dialogPreferences->get_widget('_btnSave');
 		$_btnCancel = $dialogPreferences->get_widget('_btnCancel');
@@ -22,12 +22,12 @@
 		
 		gtIcon($_btnSave, Gtk::STOCK_SAVE);
 		gtIcon($_btnCancel, Gtk::STOCK_CANCEL);
-		
-		gtColor($dialogPreferences->get_widget('_noticeBar'), 'bg', '#2C6DA9');
-		gtColor($_noticeLabel, 'fg', '#F7F7F7');
-		gtFont($_noticeLabel, 'bold');
-		gtFont($dialogPreferences->get_widget('_prefUploadGetKeyLBottom'), '10px');
-		gtFont($dialogPreferences->get_widget('_prefUploadAPIWarn'), '10px');
+
+		gtColor($dialogPreferences->get_widget('_noticeBar'), 'bg', $gui['CNoticeBarBG']);
+		gtColor($_noticeLabel, 'fg', $gui['CNoticeBarFG']);
+		gtFont($_noticeLabel, $gui['SNoticeBar']);
+		gtFont($dialogPreferences->get_widget('_prefUploadGetKeyLBottom'), $gui['XSmallNote']);
+		gtFont($dialogPreferences->get_widget('_prefUploadAPIWarn'), $gui['XSmallNote']);
 		
 		// Setting states/strings basing on config variable
 		$dialogPreferences->get_widget('_prefDisplayInfobar')->set_active($config['displayInfobar']);

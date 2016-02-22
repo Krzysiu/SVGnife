@@ -8,11 +8,12 @@
 	$timerSpin = null;
 	
 	/* Initialization */
-		set_include_path(get_include_path() . PATH_SEPARATOR . 'lib');
-		
+	set_include_path(get_include_path() . PATH_SEPARATOR . 'lib');
+	
 	foreach ($dialogs as $dialog) require_once("dialogs/{$dialog}.php"); // including additional dialogs
 	
 	require_once('core/functions.php');
+	require_once('core/guiOptions.php');
 	require_once('core/Krzysiui18n.class.php');
 	require_once('core/gtkToolbox.php');
 	require_once('core/config.php');
@@ -20,7 +21,7 @@
 	require_once('core/svgReadMeta.php');
 	require_once('core/gladeTranslate.php');
 	require_once('i18n/langList.php');
-
+	
 	$i18n = new Krzysiui18n('i18n');
 	$i18n->setLang($config['language'], 'en_US');
 	
@@ -71,11 +72,12 @@
 	foreach ($_btnNav as $type => $btn) $btn->connect_simple('clicked', 'navBarClick', $type);
 	
 	/* Widget customization */
-	gtColor('_infoBox', 'bg', '#2C6DA9');
-	gtColor($_topLabel, 'fg', '#F7F7F7');
-	gtFont($_topLabel, 'Bold');	
-	gtColor($_tipLabel, 'fg', '#F7F7F7');
-	gtFont($_tipLabel, '11px');
+	/* See guiOptions.php */
+	gtColor('_infoBox', 'bg', $gui['CNoticeBarBG']);
+	gtColor($_topLabel, 'fg', $gui['CNoticeBarFG']);
+	gtFont($_topLabel, $gui['SNoticeBar']);	
+	gtColor($_tipLabel, 'fg', $gui['CNoticeBarFG']);
+	gtFont($_tipLabel, $gui['XTipOfTheDay']);
 	
 	/* Setting preferences */
 	gtShow($glade->get_widget('_infoBar'), $config['displayInfobar']);
@@ -96,13 +98,13 @@
 		global $i18n, $glade, $fileList;
 		
 		if (!$fileList['loadedFile']) {
-		setTopBar($i18n->_('uploadNoFile'), Gtk::STOCK_DIALOG_WARNING);
-		return;
+			setTopBar($i18n->_('uploadNoFile'), Gtk::STOCK_DIALOG_WARNING);
+			return;
 		}
 		
 		if (!$fileList['properSVG']) {
 			setTopBar($i18n->_('uploadWrongFile'), Gtk::STOCK_DIALOG_WARNING);
-		return;
+			return;
 		}		
 		
 		$neededFields = [];
@@ -116,13 +118,13 @@
 		if (trim($content['tags']) === '') $neededFields[] = $i18n->_('uploadFieldTags');
 		
 		if (count($neededFields) > 0) {
-		setTopBar($i18n->_('uploadFillFields', implode(', ', $neededFields)), Gtk::STOCK_DIALOG_WARNING);
-		return;
+			setTopBar($i18n->_('uploadFillFields', implode(', ', $neededFields)), Gtk::STOCK_DIALOG_WARNING);
+			return;
 		}
 		
 		if (strpos($content['tags'], '#') === false) {
-		setTopBar($i18n->_('uploadWrongTags'), Gtk::STOCK_DIALOG_WARNING);
-		return;
+			setTopBar($i18n->_('uploadWrongTags'), Gtk::STOCK_DIALOG_WARNING);
+			return;
 		}
 		
 	}
@@ -275,7 +277,7 @@
 	
 	function setTopBar($label, $icon) {
 		global $_topLabel, $_topIcon, $_infoTipBox, $_infoHBox;
-
+		
 		$_infoTipBox->hide(); // hide tip of the day and show info bar
 		$_infoHBox->show(); 
 		gtIcon($_topIcon, $icon);
