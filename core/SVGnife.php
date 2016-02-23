@@ -251,7 +251,8 @@
 				
 				// This command runs asynchronously two synchronous commands, so _after_ Inkscape is done it 
 				// creates an empty file, so app would know when file is ready.
-				execQuiet("\"{$config['inkscapePath']}\" --file=\"{$file}\" -w=200 {$cmdPreview} --export-png=\"{$outputFile}\" & type nul >>\"$outputFile.nul\"", true);	
+				$asynchFix = detectOS(HK_OS_WINDOWS) ?  "& type nul >>\"$outputFile.nul\"" : "&& touch \"$outputFile.nul\"";
+				execQuiet("\"{$config['inkscapePath']}\" --file=\"{$file}\" -w=200 {$cmdPreview} --export-png=\"{$outputFile}\" $asynchFix", true);	
 			}
 			
 			// Get SVG metadata
