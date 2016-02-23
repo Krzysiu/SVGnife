@@ -106,10 +106,11 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkFileChooserButton" id="filechooserbutton2">
+                          <widget class="GtkFileChooserButton" id="_prefTempPath">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="action">select-folder</property>
+                            <property name="title" translatable="yes">Choose temporary directory</property>
                           </widget>
                           <packing>
                             <property name="left_attach">1</property>

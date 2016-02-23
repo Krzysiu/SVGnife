@@ -3,6 +3,8 @@
 	'prefNoticeFirstTime' => 'Hello! This is the first run, so set the preferences, please',
 	'prefNoticeRefresh' => 'You may need to refresh image to see results',
 	'prefNoticeDrawingArea' => 'Drawing area is not recommended for uploads, as OpenClipart.org uses page area',
+	'prefErrTempDir404' => 'Temporary direcotry not found. Please, use existing one!',
+	'prefErrTempDirAccess' => "Can't access temporary directory. Check permissions of:\n%s",
 	'loadIncorrectSVG' => '%s is not valid SVG',
 	'loadProblems' => 'Problems with loading %s',
 	'uploadNoFile' => 'You have to open file first',

@@ -12,7 +12,8 @@
 	*/
 	
 	$gui['CNoticeBarBG'] = '#2C6DA9';
-	$gui['CNoticeBarWarnBG'] = '#560C0C';
+	$gui['CNoticeBarWarnBG'] = '#795621';
+	$gui['CNoticeBarErrBG'] = '#991313';
 	$gui['CNoticeBarFG'] = '#F7F7F7';
 	$gui['SNoticeBar'] = 'bold';
 	$gui['XSmallNote'] = '10px';

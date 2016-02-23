@@ -5,6 +5,7 @@
 	
 	function showPreferencesDialog() {
 		global $dialogPreferences, $config, $radioGroup, $i18n, $langList, $gui;
+		
 		$dialogPreferences = new GladeXML(gtTranslateGlade('dialogPreferences'));
 		$_btnSave = $dialogPreferences->get_widget('_btnSave');
 		$_btnCancel = $dialogPreferences->get_widget('_btnCancel');
@@ -40,6 +41,7 @@
 		$_prefUploadTable->set_sensitive($config['enableUpload']);
 		gtSetText($dialogPreferences->get_widget('_prefUploadUsername'), $config['uploadUsername']);
 		gtSetText($dialogPreferences->get_widget('_prefUploadAPIKey'), $config['uploadAPIKey']);
+		$dialogPreferences->get_widget('_prefTempPath')->select_uri($config['tempDirectory']);
 		
 		// setting language combobox
 		$comboIndex = 0;
@@ -56,7 +58,9 @@
 		$dialogPreferences->get_widget('_prefPreviewPage')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeRefresh'));
 		$dialogPreferences->get_widget('_prefPreviewDrawing')->connect_simple('toggled', 'setPreferencesNoticeBox', $i18n->_('prefNoticeDrawingArea') . "\n" . $i18n->_('prefNoticeRefresh'), $gui['CNoticeBarWarnBG']);
 		
+		
 		if ($config['firstTime']) setPreferencesNoticeBox($i18n->_('prefNoticeFirstTime'));
+		
 	}
 	
 	function setDisplayPreview($widget) {
@@ -82,7 +86,14 @@
 	}
 	
 	function savePreferencesDialog() {
-		global $dialogPreferences, $glade, $config, $radioGroup;
+		global $dialogPreferences, $glade, $config, $radioGroup, $i18n, $gui;
+		
+		// Check if temporary directory is accessible
+		$config['tempDirectory'] = $dialogPreferences->get_widget('_prefTempPath')->get_filenames()[0];
+		if (!is_dir($config['tempDirectory'])) { setPreferencesNoticeBox($i18n->_('prefErrTempDir404'), $gui['CNoticeBarErrBG']); return false; }
+		$accessTest = $config['tempDirectory'] . DIRECTORY_SEPARATOR . 'tmpTest';
+		if (!touch($accessTest)) { setPreferencesNoticeBox($i18n->_('prefErrTempDirAccess', $config['tempDirectory']), $gui['CNoticeBarErrBG']); return false; }
+		unlink($accessTest); unset($accessTest);
 		
 		// Display info bar
 		$config['displayInfobar'] = $dialogPreferences->get_widget('_prefDisplayInfobar')->get_active();
@@ -111,8 +122,6 @@
 		preg_match('/\(([a-zA-Z_]*)\)/', $dialogPreferences->get_widget('_prefLanguageSelect')->get_active_text(), $matches);
 		$config['language'] = $matches[1];
 		unset($matches);
-		
-		if (!is_dir($config['tempDirectory'])) mkdir($config['tempDirectory']); // create temp directory, if doesn't exist yet
 		
 		$config['uploadUsername'] = gtGetText($dialogPreferences->get_widget('_prefUploadUsername'));
 		$config['uploadAPIKey'] = gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey'));		

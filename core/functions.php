@@ -1,6 +1,7 @@
 <?
 	/*
-		General use functions
+		General use functions. Please note that this application is released under free license
+		and some of following functions could be reused in your applications!
 	*/
 	
 	define('HK_OS_UNIX', 0);
@@ -49,3 +50,17 @@
 		$opener = $opener[detectOS()];
 		execQuiet("$opener $url", true);
 	}
+	
+	function makeDirHierarchy($path, $dirSep = false) {
+		// create path, even if it has more than one directory to create
+		
+		if ($dirSep === false) $dirSep = DIRECTORY_SEPARATOR;
+		$path = rtrim($path, $dirSep);
+		$pathArr = explode($dirSep, substr($path, 1));
+		$pathArr[0] = substr($path, 0, 1) . $pathArr[0];
+		
+		$res = true;
+		$createPath = '';
+		foreach ($pathArr as $dir) if ($res && !is_dir($createPath .= $dir . $dirSep)) $res = mkdir($createPath) || $res;
+	}
+	

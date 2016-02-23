@@ -87,7 +87,8 @@
 	gtShow($_btnUpload, $config['enableUpload']);
 	
 	/* Run */
-	if (!is_dir($config['tempDirectory'])) mkdir($config['tempDirectory']);
+	if (!is_dir($config['tempDirectory'])) makeDirHierarchy($config['tempDirectory']);
+	
 	$_previewSpinner->hide();
 	setTip(); // set initial, random tip of the day
 	if (isset($argv[1]) && file_exists($argv[1])) readSVG($argv[1]); // cmd line parameters support
@@ -240,7 +241,7 @@
 			$fileList['properSVG'] = true;
 			if ($config['displayPreview']) { // display preview only when it's visible, so people without Inkscape won't get errors
 				// Generate preview
-				$outputFile = $config['tempDirectory'] . "\\" . uniqid('preview', true) . '.png';				
+				$outputFile = $config['tempDirectory'] . DIRECTORY_SEPARATOR . uniqid('preview', true) . '.png';				
 				$previewArea = ['page', 'drawing'];
 				$cmdPreview = '--export-area-' . $previewArea[$config['previewArea']];
 				if (!empty($timerSpin)) Gtk::timeout_remove($timerSpin); // needed for navigating to other file before preview is done
