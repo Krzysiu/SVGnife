@@ -59,8 +59,8 @@
 		$pathArr = explode($dirSep, substr($path, 1));
 		$pathArr[0] = substr($path, 0, 1) . $pathArr[0];
 		
-		$res = true;
 		$createPath = '';
-		foreach ($pathArr as $dir) if ($res && !is_dir($createPath .= $dir . $dirSep)) $res = mkdir($createPath) || $res;
+		foreach ($pathArr as $dir) if ($res && !is_dir($createPath .= $dir . $dirSep)) if (!mkdir($createPath)) return false;
+		return true;
 	}
 	
