@@ -19,6 +19,48 @@
 		if ($isOS !== false) return ($isOS === $os); else return $os;	
 	}
 	
+	function detectInkscapePath() {
+		if (detectOS(HK_OS_WINDOWS)) {
+			// automatic attempt to recognize Inkscape path for Windows
+			$inkPath = "Inkscape";
+			$inkBin = "inkscape.com";
+			
+			// try standard locations
+			if (isset($_SERVER['ProgramFiles(x86)']) && file_exists($tryPath = "{$_SERVER['ProgramFiles(x86)']}\\{$inkPath}\\{$inkBin}")) return $tryPath;	
+			if (isset($_SERVER['ProgramW6432']) && file_exists($tryPath = "{$_SERVER['ProgramW6432']}\\{$inkPath}\\{$inkBin}")) return $tryPath;	
+			
+			// try to read from registry
+			if (!extension_loaded('com_dotnet')) dl('php_com_dotnet.dll');
+			$sh = new COM('WScript.Shell');
+			
+			$checkKeys = [
+			"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\inkscape.exe\\",
+			"HKCR\\inkscape.svg\\shell\\open\\command\\"
+			];
+			
+			foreach ($checkKeys as $rk) {
+				try {
+					$regRead = $sh->regRead($rk);
+					// no need to check if read passed, because if not, the rest of block won't be executed
+					$regRead = str_replace('%1', '', $regRead);
+					$tryPath = dirname(trim($regRead, '" ')) . "\\{$inkBin}";
+					if (file_exists($tryPath)) return $tryPath;
+				} catch (Exception $e) {}				
+			}
+			
+			return ''; // not found
+			} else {
+			// automatic attempt to recognize Inkscape path for other systems
+			if ($shOut = shell_exec('command -v inkscape')) return trim($shOut); // passes if Inkscape is within default path
+			
+			// try standard location
+			$tryPath = '/usr/bin/inkscape';
+			if (file_exists($tryPath)) return $tryPath;
+			
+			return ''; // not found
+		}
+	}
+	
 	function saveConfigFile() {
 		global $configFile, $config;
 		
@@ -33,7 +75,7 @@
 		if (detectOS(HK_OS_WINDOWS)) {
 			if (!extension_loaded('com_dotnet')) dl('php_com_dotnet.dll');
 			
-			$sh = new COM("WScript.Shell");		
+			$sh = new COM('WScript.Shell');		
 			$sh->Run("cmd /c \"$cmd\"", 0, !$asynchronous);
 			return;
 			} else {
@@ -63,4 +105,3 @@
 		foreach ($pathArr as $dir) if ($res && !is_dir($createPath .= $dir . $dirSep)) if (!mkdir($createPath)) return false;
 		return true;
 	}
-	

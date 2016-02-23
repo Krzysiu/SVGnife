@@ -22,9 +22,9 @@
 		$config = [
 		'firstTime' => true,
 		'tempDirectory' => sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'svgNife',
+		'inkscapePath' => detectInkscapePath(),
 		'displayInfobar' => true,
 		'displayNavbar' => true,
-		'displayPreview' => true,
 		'toolbarStyle' => '2',
 		'previewArea' => '0',
 		'language' => 'en_US',
@@ -33,4 +33,6 @@
 		'uploadUsername' => '',
 		'uploadAPIKey' => ''
 		];
+		
+		if ($config['inkscapePath']) $config['displayPreview'] = true; // enable preview if Inkscape was found
 	}	

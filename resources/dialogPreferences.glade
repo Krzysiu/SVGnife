@@ -82,7 +82,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkFileChooserButton" id="filechooserbutton1">
+                          <widget class="GtkFileChooserButton" id="_prefInkscapePath">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                           </widget>
@@ -92,7 +92,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkButton" id="button1">
+                          <widget class="GtkButton" id="_btnRecognizeInkscape">
                             <property name="label" translatable="yes">Auto-recognition</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
