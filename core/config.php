@@ -13,6 +13,7 @@
 		$iniFile = str_replace(array_keys($sysVars), $sysVars, $iniFile);
 		
 		$config = parse_ini_string($iniFile);
+		$config['firstTime'] = false;
 		
 		unset($iniFile, $sysVars);
 		} else {
