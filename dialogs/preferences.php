@@ -151,8 +151,20 @@
 		$config['language'] = $matches[1];
 		unset($matches);
 		
-		$config['uploadUsername'] = gtGetText($dialogPreferences->get_widget('_prefUploadUsername'));
-		$config['uploadAPIKey'] = gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey'));
+		$config['uploadUsername'] = trim(gtGetText($dialogPreferences->get_widget('_prefUploadUsername')));
+		$config['uploadAPIKey'] = trim(gtGetText($dialogPreferences->get_widget('_prefUploadAPIKey')));
+		if ($config['enableUpload']) {
+		$uploadCredWarn = '';
+		if (!$config['uploadUsername']) $uploadCredWarn .= '• ' . $i18n->_('prefErrNoUsername') . "\n";
+		if (!$config['uploadAPIKey']) $uploadCredWarn .= '• ' . $i18n->_('prefErrNoAPIKey'); elseif (!filter_var($config['uploadAPIKey'], FILTER_VALIDATE_INT, FILTER_FLAG_ALLOW_HEX)) $uploadCredWarn .= '• ' . $i18n->_('prefErrWrongAPIKey');
+		
+		if ($uploadCredWarn) {
+		$uploadCredWarn = trim($uploadCredWarn) . "\n" . $i18n->_('prefErrUploadCredentials');
+		setPreferencesNoticeBox($uploadCredWarn, $gui['CNoticeBarErrBG']);
+		return false;
+		}
+		}		
+		
 		$config['NSFWTagToFlag'] = $dialogPreferences->get_widget('_prefUploadNSFW')->get_active();
 		saveConfigFile(); // @functions.php
 		
