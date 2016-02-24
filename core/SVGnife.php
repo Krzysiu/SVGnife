@@ -198,6 +198,11 @@
 	
 	function readSVG($file) {
 		global $fields, $config, $timerSpin, $_navName, $_navIndex, $_btnNav, $fileList, $_btnNavRefresh, $i18n;
+				
+		if (is_dir($file)) {
+			setTopBar($i18n->_('loadProblemsDir', basename($file)), Gtk::STOCK_DIALOG_WARNING);
+			return;
+		}
 		
 		if (!file_exists($file)) {
 			setTopBar($i18n->_('loadProblems', basename($file)), Gtk::STOCK_DIALOG_WARNING);

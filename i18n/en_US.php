@@ -12,6 +12,7 @@
 	'prefInkscapeWinWrongVer' => "Warning: the correct file is inkscape.com, while you've choosed inkscape.exe.\nContinue if you are sure it's the correct file.",
 	'loadIncorrectSVG' => '%s is not valid SVG',
 	'loadProblems' => 'Problems with loading %s',
+	'loadProblemsDir' => 'This application doesn\'t support opening directories',
 	'uploadNoFile' => 'You have to open file first',
 	'uploadWrongFile' => 'Incorrect SVG files can\'t be uploaded',
 	'uploadFillFields' => 'You need to fill all requied fields. Missing: %s',
