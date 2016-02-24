@@ -28,8 +28,8 @@
 		'toolbarStyle' => '2',
 		'previewArea' => '0',
 		'language' => 'en_US',
-		'enableUpload' => '0',
-		'NSFWTagToFlag' => '1',
+		'enableUpload' => false,
+		'NSFWTagToFlag' => true,
 		'uploadUsername' => '',
 		'uploadAPIKey' => ''
 		];
