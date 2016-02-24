@@ -1,7 +1,8 @@
 <?
 	// Nothing to config here! It's just SVGnife.ini parser.
 	$appVer = '0.1.4';
-	
+	$appAgent = sprintf("SVGNife/v%s (rv:%s; %s %s %s)", $appVer, $appBuild, php_uname('s'), php_uname('r'), php_uname('m'));
+
 	$configFile = 'SVGnife.ini';
 	if (file_exists($configFile)) {
 		$iniFile = file_get_contents($configFile);

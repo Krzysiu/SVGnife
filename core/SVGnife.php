@@ -6,6 +6,7 @@
 	$toolbarStyles = [Gtk::TOOLBAR_ICONS, Gtk::TOOLBAR_TEXT, Gtk::TOOLBAR_BOTH];
 	$fileList = ['properSVG' => false, 'loadedFile' => false];
 	$timerSpin = null;
+	$appBuild = substr(md5_file(__FILE__), 0, 8);
 	
 	/* Initialization */
 	set_include_path(get_include_path() . PATH_SEPARATOR . 'lib');
@@ -96,7 +97,7 @@
 	while (Gtk::events_pending()) Gtk::main_iteration();
 	if ($config['firstTime']) showPreferencesDialog();
 	Gtk::main();
-
+	
 	/* Functions */
 	function uploadClick() {
 		global $i18n, $glade, $fileList;
@@ -125,12 +126,6 @@
 			setTopBar($i18n->_('uploadFillFields', implode(', ', $neededFields)), Gtk::STOCK_DIALOG_WARNING);
 			return;
 		}
-		
-		if (strpos($content['tags'], '#') === false) {
-			setTopBar($i18n->_('uploadWrongTags'), Gtk::STOCK_DIALOG_WARNING);
-			return;
-		}
-		
 	}
 	
 	function setTip($delta = 0) {
@@ -198,7 +193,7 @@
 	
 	function readSVG($file) {
 		global $fields, $config, $timerSpin, $_navName, $_navIndex, $_btnNav, $fileList, $_btnNavRefresh, $i18n;
-				
+		
 		if (is_dir($file)) {
 			setTopBar($i18n->_('loadProblemsDir', basename($file)), Gtk::STOCK_DIALOG_WARNING);
 			return;
