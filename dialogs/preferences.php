@@ -16,7 +16,7 @@
 		$_prefLanguageSelect = $dialogPreferences->get_widget('_prefLanguageSelect');
 		$_prefUploadEnable = $dialogPreferences->get_widget('_prefUploadEnable');
 		$_prefUploadTable = $dialogPreferences->get_widget('_prefUploadTable');
-		$_prefInkscapePath = $dialogPreferences->get_widget('_prefInkscapePath');		
+		$_prefInkscapePath = $dialogPreferences->get_widget('_prefInkscapePath');
 		
 		$_btnCancel->connect_simple('clicked', 'cancelPreferencesDialog');
 		$_btnSave->connect_simple('clicked', 'savePreferencesDialog');

@@ -57,13 +57,20 @@
 	$_infoHBox = $glade->get_widget('_infoHBox');
 	$_infoTipBox = $glade->get_widget('_infoTipBox');	
 	
-	/* Signals */
+	/* Signals and hooks */
 	Gtk2_FileDrop::attach($_eventBox, ['image/svg+xml', '*/*'], 'fileDropped', false);	
 	$_mainWindow->connect_simple('destroy', array('Gtk','main_quit'));
 	$_btnExit->connect_simple('clicked', array('Gtk','main_quit'));
 	$_btnUpload->connect_simple('clicked', 'uploadClick');
 	$_btnOpen->connect_simple('clicked', 'showOpenDialog');
 	$_btnConfig->connect_simple('clicked', 'showPreferencesDialog');
+	$glade->get_widget('_btnTopURL')->set_uri_hook('openUploadURL');	
+	
+	function openUploadURL($widget) {
+	// Handled by own hook, because in many GTK instalations default browser is broken and user can't open link
+	openURL($widget->get_uri());
+	}
+	
 	$glade->get_widget('_btnTipUp')->connect_simple('clicked', 'setTip', -1);
 	$glade->get_widget('_btnTipDown')->connect_simple('clicked', 'setTip', 1);
 	
@@ -100,8 +107,9 @@
 	
 	/* Functions */
 	function uploadClick() {
-		global $i18n, $glade, $fileList;
+		global $i18n, $glade, $fileList, $appAgent, $config;
 		
+		// Check if file is loaded and proper SVG
 		if (!$fileList['loadedFile']) {
 			setTopBar($i18n->_('uploadNoFile'), Gtk::STOCK_DIALOG_WARNING);
 			return;
@@ -112,6 +120,7 @@
 			return;
 		}		
 		
+		// Read and check fields
 		$neededFields = [];
 		$content['file'] = $fileList['currentFile'];
 		$content['title'] = gtGetText('_entryTitle');
@@ -126,6 +135,60 @@
 			setTopBar($i18n->_('uploadFillFields', implode(', ', $neededFields)), Gtk::STOCK_DIALOG_WARNING);
 			return;
 		}
+		
+		// If convert nsfw tag>flag is set, convert it and remove from tags
+		$content['nsfw'] = '0';
+		if ($config['NSFWTagToFlag']) {		
+			$nsfwCheck = array_map('trim', explode(',', $content['tags']));
+			$nsfwFind = array_search('nsfw', $nsfwCheck);
+			if ($nsfwFind !== false) {
+				unset($nsfwCheck[$nsfwFind]);
+				$content['tags'] = implode(', ', $nsfwCheck);
+				$content['nsfw'] = '1';
+				unset($nsfwCheck, $nsfwFind);
+			}
+		}
+		
+		// POST fields preparation
+		$ch = curl_init();
+
+		$formFields = [
+		'user_name' => $config['uploadUsername'],
+		'key' => $config['uploadAPIKey'],
+		'title' => $content['title'],
+		'tags' => $content['tags'],
+		'description' => $content['description'],
+		'nsfw' => $content['nsfw'],
+		'svg' => new CURLFile($content['file'], mime_content_type($content['file']), 'vector.svg')
+		];
+
+		$chOpt = [
+		CURLOPT_URL => 'https://openclipart.org/upload-2016.php',
+		CURLOPT_SSL_VERIFYPEER => false,
+		CURLOPT_HEADER => false,
+		CURLOPT_POST => 1,
+		CURLOPT_HTTPHEADER => ['Content-Type:multipart/form-data'],
+		CURLOPT_POSTFIELDS => $formFields,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_USERAGENT => $appAgent
+		];
+
+		curl_setopt_array($ch, $chOpt);
+		$chResp = curl_exec($ch);
+		$chErr = curl_error($ch);
+		
+		curl_close($ch);
+		$chJson = json_decode($chResp, true);
+		var_dump($chJson, $chResp);
+		if (!$chErr && isset($chJson['uploaded']) && ($chJson['uploaded'] == true)) {
+		setTopBar($i18n->_('uploadOK'), Gtk::STOCK_APPLY);
+		
+		// set the URL button
+		$_btnTopURL = $glade->get_widget('_btnTopURL');
+		$_btnTopURL->show();
+		$_btnTopURL->set_uri($chJson['url']);		
+		} else setTopBar($i18n->_('uploadError', $chErr), Gtk::STOCK_DIALOG_WARNING);
+		
 	}
 	
 	function setTip($delta = 0) {
@@ -282,8 +345,9 @@
 	}
 	
 	function setTopBar($label, $icon) {
-		global $_topLabel, $_topIcon, $_infoTipBox, $_infoHBox;
+		global $glade, $_topLabel, $_topIcon, $_infoTipBox, $_infoHBox;
 		
+		$glade->get_widget('_btnTopURL')->hide(); // hide the link which is shown only after upload
 		$_infoTipBox->hide(); // hide tip of the day and show info bar
 		$_infoHBox->show(); 
 		gtIcon($_topIcon, $icon);
