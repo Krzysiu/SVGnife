@@ -210,7 +210,8 @@
 		// Set navigation bar - it's done everytime file is loading to refresh directory, which could change meanwhile
 		$fileList['directory'] = dirname($file);
 		$fileList['currentFile'] = $file;
-		$fileList['list'] = glob("{$fileList['directory']}\\*.[Ss][Vv][Gg]");
+		$fileList['globFix'] = strtr($fileList['directory'], ['[' => '[[]', ']' => '[]]']);
+		$fileList['list'] = glob($fileList['globFix'] . DIRECTORY_SEPARATOR . "*.[Ss][Vv][Gg]");
 		$fileList['total'] = count($fileList['list']);
 		
 		$fileList['current'] = intval(array_search($file, $fileList['list'])) + 1;
