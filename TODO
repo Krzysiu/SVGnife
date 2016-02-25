@@ -1,0 +1,12 @@
+Preferences:
+* !Notify user about upload in progress
+* Change translation structure - /i18n/co_DE/files*
+* Translate GUI and don't set en_EN by force (start of svgnife.php)
+* Build ready to use package
+* Allow looping thought the files
+* Allow saving metadata
+* Ask before going to the prev/next file if changes in description were made
+* Add customizable description templates
+* Add button to fill:
+** Title with file name
+** Date with file modification date (pointless as long as SVGnife won't save metadata)
