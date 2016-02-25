@@ -1,7 +1,7 @@
 <?
 	// Nothing to config here! It's just SVGnife.ini parser.
 	$appVer = '0.1.4';
-	$appAgent = sprintf("SVGNife/v%s (rv:%s; %s %s %s)", $appVer, $appBuild, php_uname('s'), php_uname('r'), php_uname('m'));
+	$appAgent = sprintf("SVGnife/v%s (rv:%s; %s %s %s)", $appVer, $appBuild, php_uname('s'), php_uname('r'), php_uname('m'));
 
 	$configFile = 'SVGnife.ini';
 	if (file_exists($configFile)) {
@@ -22,7 +22,7 @@
 		
 		$config = [
 		'firstTime' => true,
-		'tempDirectory' => sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'svgNife',
+		'tempDirectory' => sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'SVGnife',
 		'inkscapePath' => detectInkscapePath(),
 		'displayInfobar' => true,
 		'displayNavbar' => true,
