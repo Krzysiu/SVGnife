@@ -101,7 +101,8 @@
 	setTip(); // set initial, random tip of the day
 	if (isset($argv[1]) && file_exists($argv[1])) readSVG($argv[1]); // cmd line parameters support
 	
-	while (Gtk::events_pending()) Gtk::main_iteration();
+	gtGTKLoop();
+	
 	if ($config['firstTime']) showPreferencesDialog();
 	Gtk::main();
 	
@@ -135,6 +136,10 @@
 			setTopBar($i18n->_('uploadFillFields', implode(', ', $neededFields)), Gtk::STOCK_DIALOG_WARNING);
 			return;
 		}
+		
+		// everything seems to be fine - uploading
+		setTopBar($i18n->_('uploadInProgress'), Gtk::STOCK_DIALOG_INFO);
+		gtGTKLoop(); // wait until top bar is set
 		
 		// If convert nsfw tag>flag is set, convert it and remove from tags
 		$content['nsfw'] = '0';

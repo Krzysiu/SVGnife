@@ -112,3 +112,8 @@
 		if ($state) $widget->start(); else $widget->stop();
 	}
 	
+	function gtGTKLoop() {
+	// standard GTK loop
+	while (Gtk::events_pending()) Gtk::main_iteration();
+	}
+	
