@@ -4,7 +4,9 @@ Preferences:
 * Translate GUI and don't set en_EN by force (start of svgnife.php)
 * Build ready to use package
 * Allow looping thought the files
-
+* Allow saving metadata
+* Ask before going to the prev/next file if changes in description were made
+* Add customizable description templates
 
 v0.1.4 (TBA)
 ============
@@ -12,6 +14,9 @@ v0.1.4 (TBA)
 * Preferences dialog shows when user runs application for the first time
 * Autorecognition of Inkscape path (on first run or on demand)
 * Better multiplatform support («something» is better than «nothing»!)
+* Changed previous/next and first/last keyboard shortcuts because previous interfered with standard
+  editing keys
+* Added keyboard shortcut to open, upload and preferences
 
 * Minor bugs fixed
 ** Better behavior when trying to open directory, not a file
