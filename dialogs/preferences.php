@@ -156,7 +156,7 @@
 		if ($config['enableUpload']) {
 		$uploadCredWarn = '';
 		if (!$config['uploadUsername']) $uploadCredWarn .= '• ' . $i18n->_('prefErrNoUsername') . "\n";
-		if (!$config['uploadAPIKey']) $uploadCredWarn .= '• ' . $i18n->_('prefErrNoAPIKey'); elseif (!ctype_xdigit($config['uploadAPIKey'])) $uploadCredWarn .= '• ' . $i18n->_('prefErrWrongAPIKey');
+		if (!$config['uploadAPIKey']) $uploadCredWarn .= '• ' . $i18n->_('prefErrNoAPIKey'); elseif (!ctype_xdigit($config['uploadAPIKey']) || (strlen($config['uploadAPIKey']) !== 32)) $uploadCredWarn .= '• ' . $i18n->_('prefErrWrongAPIKey');
 		
 		if ($uploadCredWarn) {
 		$uploadCredWarn = trim($uploadCredWarn) . "\n" . $i18n->_('prefErrUploadCredentials');
