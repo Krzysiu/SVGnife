@@ -1,5 +1,6 @@
 <?
-	
+	chdir(__DIR__ . DIRECTORY_SEPARATOR . '..');
+
 	/* Setting up variables */
 	$fields = ['Title', 'Tags', 'Date', 'Language', 'Publisher', 'Description'];
 	$dialogs = ['open', 'about', 'preferences'];
