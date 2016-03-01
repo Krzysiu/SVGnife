@@ -1,4 +1,5 @@
 <?
+	$debugMode = (getenv('svgnife-dlc') == 1); // if local env is set, set debug mode
 	chdir(__DIR__ . DIRECTORY_SEPARATOR . '..');
 
 	/* Setting up variables */
@@ -82,6 +83,7 @@
 	
 	/* Widget customization */
 	/* See guiOptions.php */
+	if ($debugMode) $_mainWindow->set_title($i18n->_('debugModeTitle', $_mainWindow->get_title()));
 	gtColor('_infoBox', 'bg', $gui['CNoticeBarBG']);
 	gtColor($_topLabel, 'fg', $gui['CNoticeBarFG']);
 	gtFont($_topLabel, $gui['SNoticeBar']);	
