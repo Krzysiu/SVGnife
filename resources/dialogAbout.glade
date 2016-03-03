@@ -12,13 +12,18 @@
     <property name="skip_taskbar_hint">True</property>
     <property name="program_name">SVGnife</property>
     <property name="copyright" translatable="yes">Krzysztof Blachnicki</property>
-    <property name="comments" translatable="yes">SVGnife - swiss knife for SVG. Small, yet usable!
+    <property name="comments" translatable="yes">&lt;b&gt;SVGnife - swiss knife for SVG&lt;/b&gt;. Small, yet usable!
 
-Made to fulfill my need of SVG metadata reading, fast SVG preview and at last but not least - quick sharing vector files with OpenClipart.com.
+Made to fulfill my need of SVG &lt;b&gt;metadata reading&lt;/b&gt;, fast SVG &lt;b&gt;preview&lt;/b&gt; and at last but not least - quick &lt;b&gt;uploading&lt;/b&gt; vector files to OpenClipart.com.
 
-This tool is totally free, yet if you want to support further creation of SVGnife or just thank me, all donations are welcome.
+This tool is totally free, yet if you want to support further creation of SVGnife or just thank me, &lt;b&gt;all donations are welcome&lt;/b&gt;.
 
-I'll be happy to hear your review, opinion, use cases etc. You can contact me using contact form on my website.</property>
+I'll be happy to hear your review, opinion, use cases etc. You can contact me using contact form on my website.
+
+See also:
+• &lt;a href="https://github.com/Krzysiu/SVGnife"&gt;Code repository (@GitHub)&lt;/a&gt;
+• &lt;a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=943BUV4EP3S3Y"&gt;Donations (@PayPal)&lt;/a&gt;
+• &lt;a href="https://krzysiu.net"&gt;Author's webiste (krzysiu.net)&lt;/a&gt;</property>
     <property name="website">http://krzysiu.net</property>
     <property name="website_label" translatable="yes">http://krzysiu.net</property>
     <property name="license" translatable="yes">Copyright (c) 2016 krzysiu.net
@@ -29,6 +34,11 @@ GPL license: http://www.gnu.org/licenses/gpl.html
 MIT license: http://opensource.org/licenses/MIT
 
 All derivative works have to be attributed to "Krzysztof Blachnicki (krzysiu.net)".</property>
+    <property name="authors">Author:
+• Krzysztof Blachnicki - http://krzysiu.net
+
+Testers:
+• Peter Köhlichhaus - "BOING!"</property>
     <property name="logo">logo_big.png</property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox1">
