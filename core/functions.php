@@ -88,6 +88,7 @@
 	function openURLHook($widget, $url) {
 	// Handled by own hook, because in many GTK instalations default browser is broken and user can't open link
 	openURL($url);
+	return true;
 	}
 	
 	function openURL($url) {
