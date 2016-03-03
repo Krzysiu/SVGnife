@@ -25,6 +25,10 @@
 	require_once('core/gladeTranslate.php');
 	require_once('i18n/langList.php');
 	
+	// If Windows user forced run without VC++, yet somehow app runs, .firstrun file may be deleted,
+	// so the .exe loader won't bug for VC++ install anymore
+	if (detectOS(HK_OS_WINDOWS) && file_exists('.firstrun')) unlink('.firstrun');
+	
 	$i18n = new Krzysiui18n('i18n');
 	$i18n->setLang($config['language'], 'en_US');
 	
