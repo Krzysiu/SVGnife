@@ -1,17 +1,29 @@
-v0.1.4 (TBA)
+v0.1.5 (TBA)
 ============
+
+
+v0.1.4 (2016-03-04)
+===================
 * Upload is now available
+* Donations are now possible.
+* [Windows] Setup binary with bundled PHP-GTK and SVGnife loader (svgnife.exe), which checks and 
+  eventually installs VC 2012 x86 redist. Now Windows users can use it without getting anything 
+  else. Everything's bundled in one!
 * Preferences dialog shows when user runs application for the first time
 * Autorecognition of Inkscape path (on first run or on demand)
+* [Windows] Redone debug tool (debug.bat) - now it shows menu with a few debug options and saves 
+  a lot more data.
 * Better multiplatform support («something» is better than «nothing»!)
 * Changed previous/next and first/last keyboard shortcuts because previous interfered with standard
   editing keys
 * Added keyboard shortcut to open, upload and preferences
+* Reworked "About" dialog
 
 * Minor bugs fixed
 ** Better behavior when trying to open directory, not a file
 ** Support for browsing directories with brackets in name
 ** Sometimes temporary directory wasn't created
+** Some URLs couldn't be opened
 
 v0.1.3 (2016-02-21)
 ===================

@@ -2,7 +2,7 @@
 ; If you want to build setup by yourself, please change paths.
 
 #define MyAppName "SVGnife"
-#define MyAppVersion "0.1.4"
+#define MyAppVersion "0.1.5"
 #define MyAppPublisher "krzysiu.net"
 #define MyAppURL "https://github.com/Krzysiu/SVGnife"
 #define MyAppExeName "SVGnife.exe"
@@ -30,7 +30,7 @@ RestartIfNeededByRun=False
 ShowLanguageDialog=no
 CloseApplications=False
 RestartApplications=False
-VersionInfoVersion=0.0.1
+VersionInfoVersion=0.1.5
 VersionInfoCompany=krzysiu.net
 VersionInfoDescription=SVGnife setup
 VersionInfoCopyright=krzysiu.net
