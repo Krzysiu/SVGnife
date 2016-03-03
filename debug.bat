@@ -104,6 +104,7 @@ goto menu_q
 
 :menu_o
 cmd /c %dlccmd%
+pause
 goto menu_q
 
 :menu_w
