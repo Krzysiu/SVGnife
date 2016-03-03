@@ -1,4 +1,4 @@
-; Inno Setup install script for SVGnife.
+﻿; Inno Setup install script for SVGnife.
 ; If you want to build setup by yourself, please change paths.
 
 #define MyAppName "SVGnife"
@@ -16,7 +16,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\SVGNife
+DefaultDirName={pf}\SVGnife
 DefaultGroupName=SVGnife
 DisableProgramGroupPage=auto
 LicenseFile=C:\Skrypty\!Aplikacje\SVGnife\setup\setupLicense.txt
@@ -43,7 +43,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\SVGnife.exe"; DestDir: "{app}"; Flags: ignoreversion; Tasks: desktopicon
+Source: "..\SVGnife.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Skrypty\!Aplikacje\SVGnife\CHANGELOG"; DestDir: "{app}"; DestName: "changelog.txt"; Flags: ignoreversion
 Source: "C:\Skrypty\!Aplikacje\SVGnife\debug.bat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Skrypty\!Aplikacje\SVGnife\KEYBOARD"; DestDir: "{app}"; DestName: "keyboard.txt"; Flags: ignoreversion
