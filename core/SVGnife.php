@@ -70,12 +70,7 @@
 	$_btnUpload->connect_simple('clicked', 'uploadClick');
 	$_btnOpen->connect_simple('clicked', 'showOpenDialog');
 	$_btnConfig->connect_simple('clicked', 'showPreferencesDialog');
-	$glade->get_widget('_btnTopURL')->set_uri_hook('openUploadURL');	
-	
-	function openUploadURL($widget) {
-	// Handled by own hook, because in many GTK instalations default browser is broken and user can't open link
-	openURL($widget->get_uri());
-	}
+	$glade->get_widget('_btnTopURL')->set_uri_hook('openURLHook');	
 	
 	$glade->get_widget('_btnTipUp')->connect_simple('clicked', 'setTip', -1);
 	$glade->get_widget('_btnTipDown')->connect_simple('clicked', 'setTip', 1);
