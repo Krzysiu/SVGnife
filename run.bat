@@ -1,1 +1,0 @@
-c:\php-gtk\php.exe "%~dp0\core\SVGnife.php"
