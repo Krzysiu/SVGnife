@@ -16,7 +16,7 @@ echo Select menu item by pressing corresponding key.
 <nul set /p tmpEcho=.  o     don't log, just show PHP output to console & echo. & echo.
 
 <nul set /p tmpEcho=.  p     run partial debug & echo.
-<nul set /p tmpEcho=.        (that option in recommended, yet you may be asked to run it) & echo. & echo.
+<nul set /p tmpEcho=.        (that option is not recommended, yet you may be asked to run it) & echo. & echo.
 
 <nul set /p tmpEcho=.  w     open GitHub application issues webpage & echo.
 <nul set /p tmpEcho=.        (the best option, allows other developers/users to check the log) & echo. & echo.
