@@ -94,7 +94,7 @@
 	function openURL($url) {
 		// opens URL in default browser according to current OS
 
-		$opener = [0 => 'xdg-open', 1 => 'start', 2 => 'open'];
+		$opener = [HK_OS_UNIX => 'xdg-open', HK_OS_WINDOWS => 'start', HK_OS_MAC => 'open'];
 		$opener = $opener[detectOS()];
 		$url = shellEncode($url);
 		execQuiet("$opener $url", true);
@@ -105,7 +105,7 @@
 	function shellEncode($str) {
 	// Encodes shell command according to current system
 	$os = detectOS();
-	if ($os === 1) $str = strtr($str, ['&' => '^&', '|' => '^|', '^|' => '^^']); // escape Windows characters
+	if ($os === HK_OS_WINDOWS) $str = strtr($str, ['&' => '^&', '|' => '^|', '^|' => '^^']); // escape Windows characters
 	else $str = strtr($str, ['&' => '\&', "\\" => "\\\\", '|' => '\|', '^|' => '^^']); // escape other system characters
 	
 	return $str;
